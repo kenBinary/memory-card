@@ -1,9 +1,9 @@
 import ScoreIndicator from "./ScoreIndicator";
-export default function Header() {
+export default function Header({ score, highScore }) {
     return (
         <header>
             <h1>Fighter Memory</h1>
-            <ScoreIndicator></ScoreIndicator>
+            <ScoreIndicator currentScore={score} highScore={highScore}></ScoreIndicator>
         </header>
     );
 }

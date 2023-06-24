@@ -48,6 +48,13 @@ main > section > .card-container > div {
   width: 24%;
   height: 50%;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main > section > .card-container > div > img {
+  aspect-ratio: 4/5;
+  width: 75%;
 }
 
 /*# sourceMappingURL=game-page.css.map */

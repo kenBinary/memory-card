@@ -5,16 +5,21 @@
 // when card clicked is already clicked reset score and check if current score is high
 // have function that shuffles card positions
 
-const gameBoard = (cards, score) => {
-    let gameCards = cards;
-    let gameScore = score;
+const gameBoard = (cards) => {
+    let gameCards = [...cards];
     function cardHit(index) {
         if (gameCards[index].getCardInfo().isHit) {
             return true;
         }
         else {
             gameCards[index].setHit(true);
+            return false
         }
+    }
+    function resetHits() {
+        gameCards.forEach(card=>{
+            card.setHit(false);
+        });
     }
     function shuffleCards() {
         for (let index = 0; index < gameCards.length; index++) {
@@ -27,9 +32,9 @@ const gameBoard = (cards, score) => {
     function getCards() {
         return gameCards;
     }
-    function getGameScore() {
-        return gameScore;
+    function setCards(newCards) {
+        gameCards = [...newCards]
     }
-    return { cardHit, shuffleCards, getCards, getGameScore }
+    return {resetHits, setCards, cardHit, shuffleCards, getCards }
 }
 export default gameBoard;

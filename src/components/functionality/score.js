@@ -1,7 +1,7 @@
-const score = (currentScore) => {
-    let currentScore = currentScore;
+const score = (score) => {
+    let currentScore = score;
     let highScore = 0;
-    function checkHighScore(currentScore) {
+    function updateHighScore() {
         highScore = (currentScore > highScore) ? currentScore : highScore;
     }
     function getHighScore() {
@@ -10,5 +10,9 @@ const score = (currentScore) => {
     function setCurrentScore(sScore) {
         currentScore = sScore;
     }
-    return { checkHighScore, getHighScore, setCurrentScore }
+    function getCurrentScore() {
+        return currentScore;
+    }
+    return { getHighScore, setCurrentScore, getCurrentScore }
 }
+export default score;

@@ -1,15 +1,17 @@
-export default function GameBoard(){
+export default function GameBoard({ cardClicked, cards }) {
     return (
         <section className="game-board">
             <div className="card-container">
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
+                {
+                    cards.map((element, index) => {
+                        return <div key={index} onClick={() => {
+                            cardClicked(index)
+                        }}>
+                            <img src={element.getImage().src}></img>
+                            {/* {element.getCardInfo().cardName} */}
+                        </div>
+                    })
+                }
             </div>
         </section>
     )
